@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} My Blog {% endblock title %} 
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog/post.css" %}">
+<link rel="stylesheet" href="{% static "blog/index.css" %}">
+{% endblock css_files %}
+
+{%block content %}
+{% comment %} <h1>Welcome to my Blog</h1> {% endcomment %}
+<section id="welcome">
+    <header>
+        <img src="{% static "blog/images/res.png" %}" alt="Aaron Peter Ocen - Blog Author" />
+        <h2>AARON'S BLOG</h2>
+    </header>
+    <p>Hi I'm Aaron and I love blogging about tech and the world</p>
+</section>
+
+<section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+
+    <ul>
+        {% for post in posts %}
+        {% include "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id="about">
+    <h2>What I Do?</h2>
+    <p>I love programming and I enjoy exploring new tech in general</p>
+    <p>
+        My Goal is to keep on learning as a Developer as I continue learing
+    </p>
+</section>
+{% endblock content %}
